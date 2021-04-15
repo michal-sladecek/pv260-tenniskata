@@ -13,4 +13,23 @@ public class TennisTests {
         assertEquals(0,tennis.getScoreA());
         assertEquals(0,tennis.getScoreB());
     }
+    @Test
+    public void testPlayerScore() {
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        assertEquals(15,tennis.getScoreA());
+        assertEquals(0,tennis.getScoreB());
+        tennis.scoredA();
+        assertEquals(30,tennis.getScoreA());
+        assertEquals(0,tennis.getScoreB());
+        tennis.scoredA();
+        assertEquals(40,tennis.getScoreA());
+        assertEquals(0,tennis.getScoreB());
+        tennis.scoredB();
+        assertEquals(40,tennis.getScoreA());
+        assertEquals(15,tennis.getScoreB());
+        tennis.scoredB();
+        assertEquals(40,tennis.getScoreA());
+        assertEquals(30,tennis.getScoreB());
+    }
 }
