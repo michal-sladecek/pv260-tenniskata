@@ -14,7 +14,7 @@ public class TennisTests {
         assertEquals(0,tennis.getScoreB());
     }
     @Test
-    public void testPlayerScore() {
+    public void testPlayerScoreNonEqual() {
         Tennis tennis = new Tennis();
         tennis.scoredA();
         assertEquals(15,tennis.getScoreA());
