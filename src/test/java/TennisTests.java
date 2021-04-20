@@ -32,4 +32,7 @@ public class TennisTests {
         assertEquals(40,tennis.getScoreA());
         assertEquals(30,tennis.getScoreB());
     }
+
+
+
 }
