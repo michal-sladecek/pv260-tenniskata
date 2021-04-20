@@ -33,6 +33,46 @@ public class TennisTests {
         assertEquals(30,tennis.getScoreB());
     }
 
+    public void testPlayerWinsIfHeScoresWhenHeHas40Points(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        assertEquals(true,tennis.isAWinner());
+        assertEquals(false,tennis.isBWinner());
 
+        tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertEquals(true,tennis.isAWinner());
+        assertEquals(false,tennis.isBWinner());
+
+
+        tennis = new Tennis();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        assertEquals(true,tennis.isBWinner());
+        assertEquals(false,tennis.isAWinner());
+
+        tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertEquals(false,tennis.isBWinner());
+        assertEquals(false,tennis.isAWinner());
+    }
 
 }
