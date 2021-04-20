@@ -4,8 +4,8 @@ public class Tennis {
     int scoreA=0;
     int scoreB=0;
     Winner winner = Winner.NONE;
+    private Advantage advantage = Advantage.NONE;
     private HashMap<Integer, Integer> nextScore = new HashMap<>();
-
 
     public Tennis() {
         nextScore.put(0,15);
@@ -25,6 +25,12 @@ public class Tennis {
 
 
     public void scoredA(){
+        if(advantage==Advantage.A){
+            winner = Winner.A;
+        }
+        if(scoreA == 40 && scoreB == 40){
+            advantage = Advantage.A;
+        }
         if(scoreA == 40 && scoreB != 40) {
             winner = Winner.A;
             return;
@@ -34,6 +40,12 @@ public class Tennis {
     }
 
     public void scoredB(){
+        if(advantage==Advantage.B){
+            winner = Winner.B;
+        }
+        if(scoreA == 40 && scoreB == 40){
+            advantage = Advantage.B;
+        }
         if(scoreA != 40 && scoreB == 40) {
             winner = Winner.B;
             return;
@@ -48,7 +60,21 @@ public class Tennis {
     public boolean isBWinner() {
         return winner == Winner.B;
     }
+
+    public boolean hasAAdvantage(){
+        return advantage == Advantage.A;
+    }
+    public boolean hasBAdvantage(){
+        return advantage == Advantage.B;
+    }
+
     enum Winner {
+        NONE,
+        A,
+        B
+    }
+
+    enum Advantage {
         NONE,
         A,
         B

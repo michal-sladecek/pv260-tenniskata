@@ -1,10 +1,7 @@
 import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
-import static java.util.Arrays.asList;
 import static org.junit.Assert.*;
-import static org.mockito.Matchers.isA;
-import static org.mockito.Mockito.*;
 
 public class TennisTests {
     @Test
@@ -85,8 +82,8 @@ public class TennisTests {
         tennis.scoredB();
         tennis.scoredB();
         tennis.scoredA();
-        assertTrue(tennis.hasAAdventage());
-        assertFalse(tennis.hasBAdventage());
+        assertTrue(tennis.hasAAdvantage());
+        assertFalse(tennis.hasBAdvantage());
     }
     @Test
     public void testAdvantageWinA(){
