@@ -25,17 +25,21 @@ public class Tennis {
 
 
     public void scoredA(){
+        if(scoreA == 40 && scoreB != 40) {
+            winner = Winner.A;
+            return;
+        }
         if(nextScore.containsKey(scoreA))
             scoreA = nextScore.get(scoreA);
-        if(scoreA == 40 && scoreB != 40)
-            winner = Winner.A;
     }
 
     public void scoredB(){
+        if(scoreA != 40 && scoreB == 40) {
+            winner = Winner.B;
+            return;
+        }
         if(nextScore.containsKey(scoreB))
             scoreB = nextScore.get(scoreB);
-        if(scoreA != 40 && scoreB == 40)
-            winner = Winner.B;
     }
 
     public boolean isAWinner() {

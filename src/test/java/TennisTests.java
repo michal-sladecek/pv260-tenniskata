@@ -33,6 +33,7 @@ public class TennisTests {
         assertEquals(30,tennis.getScoreB());
     }
 
+    @Test
     public void testPlayerWinsIfHeScoresWhenHeHas40Points(){
         Tennis tennis = new Tennis();
         tennis.scoredA();
