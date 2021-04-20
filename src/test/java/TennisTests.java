@@ -99,4 +99,31 @@ public class TennisTests {
         tennis.scoredA();
         assertTrue(tennis.isAWinner());
     }
+
+    @Test
+    public void testAdvantageRemovedIfOtherScores(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertTrue(tennis.hasAAdvantage());
+        assertFalse(tennis.hasBAdvantage());
+        tennis.scoredB();
+        assertEquals(40,tennis.getScoreA());
+        assertEquals(40,tennis.getScoreB());
+        assertFalse(tennis.hasBAdvantage());
+        assertFalse(tennis.hasAAdvantage());
+        tennis.scoredB();
+        assertTrue(tennis.hasBAdvantage());
+        assertFalse(tennis.hasAAdvantage());
+        tennis.scoredA();
+        assertFalse(tennis.hasBAdvantage());
+        assertFalse(tennis.hasAAdvantage());
+        assertEquals(40,tennis.getScoreA());
+        assertEquals(40,tennis.getScoreB());
+    }
 }
