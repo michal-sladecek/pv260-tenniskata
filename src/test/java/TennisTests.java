@@ -2,9 +2,9 @@ import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static java.util.Arrays.asList;
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.isA;
 import static org.mockito.Mockito.*;
-import static org.junit.Assert.assertEquals;
 
 public class TennisTests {
     @Test
@@ -75,5 +75,31 @@ public class TennisTests {
         assertEquals(false,tennis.isBWinner());
         assertEquals(false,tennis.isAWinner());
     }
-
+    @Test
+    public void testAdvantage(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertTrue(tennis.hasAAdventage());
+        assertFalse(tennis.hasBAdventage());
+    }
+    @Test
+    public void testAdvantageWinA(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertFalse(tennis.isAWinner());
+        tennis.scoredA();
+        assertTrue(tennis.isAWinner());
+    }
 }
