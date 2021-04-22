@@ -25,32 +25,36 @@ public class Tennis {
 
 
     public void scoredA(){
-        if(advantage==Advantage.A){
+        if(this.hasBAdvantage()){
+            advantage = Advantage.NONE;
+        }
+        else if(advantage==Advantage.A){
             winner = Winner.A;
         }
-        if(scoreA == 40 && scoreB == 40){
+        else if(scoreA == 40 && scoreB == 40){
             advantage = Advantage.A;
         }
-        if(scoreA == 40 && scoreB != 40) {
+        else if(scoreA == 40) {
             winner = Winner.A;
-            return;
         }
-        if(nextScore.containsKey(scoreA))
+        else if(nextScore.containsKey(scoreA))
             scoreA = nextScore.get(scoreA);
     }
 
     public void scoredB(){
-        if(advantage==Advantage.B){
+        if(this.hasAAdvantage()){
+            advantage = Advantage.NONE;
+        }
+        else if(advantage==Advantage.B){
             winner = Winner.B;
         }
-        if(scoreA == 40 && scoreB == 40){
+        else if(scoreA == 40 && scoreB == 40){
             advantage = Advantage.B;
         }
-        if(scoreA != 40 && scoreB == 40) {
+        else if(scoreB == 40) {
             winner = Winner.B;
-            return;
         }
-        if(nextScore.containsKey(scoreB))
+        else if(nextScore.containsKey(scoreB))
             scoreB = nextScore.get(scoreB);
     }
 
