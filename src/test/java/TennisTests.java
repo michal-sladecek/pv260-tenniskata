@@ -126,4 +126,17 @@ public class TennisTests {
         assertEquals(40,tennis.getScoreA());
         assertEquals(40,tennis.getScoreB());
     }
+
+    @Test
+    public void testNonEqualScores(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        assertEquals("15 - 0", tennis.showScore());
+        tennis.scoredB();
+        tennis.scoredA();
+        assertEquals("30 - 15", tennis.showScore());
+        tennis.scoredB();
+        tennis.scoredB();
+        assertEquals("30 - 40", tennis.showScore());
+    }
 }
