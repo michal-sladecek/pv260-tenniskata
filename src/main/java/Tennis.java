@@ -1,3 +1,4 @@
+import java.util.Formatter;
 import java.util.HashMap;
 
 public class Tennis {
@@ -12,6 +13,10 @@ public class Tennis {
         nextScore.put(15,30);
         nextScore.put(30,40);
 
+    }
+
+    public String showScore(){
+        return new Formatter().format("%d - %d", scoreA,scoreB).toString();
     }
 
     public int getScoreA() {
