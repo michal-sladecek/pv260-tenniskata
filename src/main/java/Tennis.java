@@ -16,7 +16,14 @@ public class Tennis {
     }
 
     public String showScore(){
-        return new Formatter().format("%d - %d", scoreA,scoreB).toString();
+        Formatter f = new Formatter();
+        if (advantage == Advantage.A) {
+            return f.format("A - %d", scoreB).toString();
+        }
+        if (advantage == Advantage.B) {
+            return f.format("%d - A", scoreA).toString();
+        }
+        return f.format("%d - %d", scoreA, scoreB).toString();
     }
 
     public int getScoreA() {
