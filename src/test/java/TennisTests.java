@@ -139,4 +139,20 @@ public class TennisTests {
         tennis.scoredB();
         assertEquals("30 - 40", tennis.showScore());
     }
+
+    @Test
+    public void testAdvantageShowing(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        assertEquals("A - 40", tennis.showScore());
+        tennis.scoredB();
+        tennis.scoredB();
+        assertEquals("40 - A", tennis.showScore());
+    }
 }
