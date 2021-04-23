@@ -155,4 +155,15 @@ public class TennisTests {
         tennis.scoredB();
         assertEquals("40 - A", tennis.showScore());
     }
+    @Test
+    public void testEqualScoreShowing(){
+        Tennis tennis = new Tennis();
+        assertEquals("0 all", tennis.showScore());
+        tennis.scoredA();
+        tennis.scoredB();
+        assertEquals("15 all", tennis.showScore());
+        tennis.scoredA();
+        tennis.scoredB();
+        assertEquals("30 all", tennis.showScore());
+    }
 }
