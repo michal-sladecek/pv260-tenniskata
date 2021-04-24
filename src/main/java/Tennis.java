@@ -17,7 +17,9 @@ public class Tennis {
 
     public String showScore(){
         Formatter f = new Formatter();
-
+        if (winner != Winner.NONE) {
+            return f.format("winner: %s", winner.toString()).toString();
+        }
         if (advantage == Advantage.A) {
             return f.format("A - %d", scoreB).toString();
         }
