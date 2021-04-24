@@ -38,8 +38,8 @@ public class TennisTests {
         tennis.scoredA();
         tennis.scoredA();
         tennis.scoredA();
-        assertEquals(true,tennis.isAWinner());
-        assertEquals(false,tennis.isBWinner());
+        assertTrue(tennis.isAWinner());
+        assertFalse(tennis.isBWinner());
 
         tennis = new Tennis();
         tennis.scoredA();
@@ -48,8 +48,8 @@ public class TennisTests {
         tennis.scoredA();
         tennis.scoredB();
         tennis.scoredA();
-        assertEquals(true,tennis.isAWinner());
-        assertEquals(false,tennis.isBWinner());
+        assertTrue(tennis.isAWinner());
+        assertFalse(tennis.isBWinner());
 
 
         tennis = new Tennis();
@@ -59,8 +59,8 @@ public class TennisTests {
         tennis.scoredB();
         tennis.scoredA();
         tennis.scoredB();
-        assertEquals(true,tennis.isBWinner());
-        assertEquals(false,tennis.isAWinner());
+        assertTrue(tennis.isBWinner());
+        assertFalse(tennis.isAWinner());
 
         tennis = new Tennis();
         tennis.scoredA();
@@ -70,8 +70,8 @@ public class TennisTests {
         tennis.scoredA();
         tennis.scoredB();
         tennis.scoredA();
-        assertEquals(false,tennis.isBWinner());
-        assertEquals(false,tennis.isAWinner());
+        assertFalse(tennis.isBWinner());
+        assertFalse(tennis.isAWinner());
     }
     @Test
     public void testAdvantage(){
@@ -204,7 +204,7 @@ public class TennisTests {
         tennis.scoredA();
 
         assertThatExceptionOfType(RuntimeException.class)
-                .isThrownBy(() -> tennis.scoredB())
+                .isThrownBy(tennis::scoredB)
                 .withMessage("Winner already exists: %s", tennis.winner.toString());
     }
 }
