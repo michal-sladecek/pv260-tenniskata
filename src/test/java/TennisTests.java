@@ -1,6 +1,7 @@
 import org.junit.Test;
 
 import static com.googlecode.catchexception.CatchException.catchException;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.Assert.*;
 
 public class TennisTests {
@@ -193,5 +194,17 @@ public class TennisTests {
         tennis.scoredB();
         tennis.scoredB();
         assertEquals("winner: B",tennis.showScore());
+    }
+    @Test
+    public void testScoreAfterWinExceptionThrown(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+        tennis.scoredA();
+
+        assertThatExceptionOfType(RuntimeException.class)
+                .isThrownBy(() -> tennis.scoredB())
+                .withMessage("Winner already exists: %s", tennis.winner.toString());
     }
 }
