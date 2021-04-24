@@ -17,11 +17,15 @@ public class Tennis {
 
     public String showScore(){
         Formatter f = new Formatter();
+
         if (advantage == Advantage.A) {
             return f.format("A - %d", scoreB).toString();
         }
         if (advantage == Advantage.B) {
             return f.format("%d - A", scoreA).toString();
+        }
+        if(scoreA == scoreB){
+            return f.format("%d all",scoreA).toString();
         }
         return f.format("%d - %d", scoreA, scoreB).toString();
     }
