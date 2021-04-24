@@ -24,6 +24,9 @@ public class Tennis {
         if (advantage == Advantage.B) {
             return f.format("%d - A", scoreA).toString();
         }
+        if(scoreA == 40 && scoreA == scoreB){
+            return f.format("deuce").toString();
+        }
         if(scoreA == scoreB){
             return f.format("%d all",scoreA).toString();
         }

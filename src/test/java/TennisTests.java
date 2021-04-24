@@ -166,7 +166,7 @@ public class TennisTests {
         tennis.scoredB();
         assertEquals("30 all", tennis.showScore());
     }
-
+    @Test
     public void testDeuce(){
         Tennis tennis = new Tennis();
         tennis.scoredA();
@@ -177,7 +177,7 @@ public class TennisTests {
         tennis.scoredB();
         assertEquals("deuce",tennis.showScore());
     }
-
+    @Test
     public void testWin(){
         Tennis tennis = new Tennis();
         tennis.scoredA();
