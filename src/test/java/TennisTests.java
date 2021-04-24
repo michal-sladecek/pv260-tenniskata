@@ -166,4 +166,32 @@ public class TennisTests {
         tennis.scoredB();
         assertEquals("30 all", tennis.showScore());
     }
+
+    public void testDeuce(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        assertEquals("deuce",tennis.showScore());
+    }
+
+    public void testWin(){
+        Tennis tennis = new Tennis();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredB();
+        tennis.scoredA();
+        tennis.scoredA();
+        assertEquals("winner: A",tennis.showScore());
+        tennis = new Tennis();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredB();
+        tennis.scoredB();
+        assertEquals("winner: B",tennis.showScore());
+    }
 }
