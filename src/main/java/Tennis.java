@@ -46,6 +46,9 @@ public class Tennis {
 
 
     public void scoredA(){
+        if(winner != Winner.NONE){
+            throw new RuntimeException("Winner already exists: " + winner.toString());
+        }
         if(this.hasBAdvantage()){
             advantage = Advantage.NONE;
         }
@@ -63,6 +66,9 @@ public class Tennis {
     }
 
     public void scoredB(){
+        if(winner != Winner.NONE){
+            throw new RuntimeException("Winner already exists: " + winner.toString());
+        }
         if(this.hasAAdvantage()){
             advantage = Advantage.NONE;
         }
